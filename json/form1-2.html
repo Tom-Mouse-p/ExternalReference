@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>form1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom Files -->
+    <link rel="stylesheet" href="styles/style.css">
+    </link>
+
+    <script defer src="./scripts/country.js"></script>
+    <script defer src="scripts/nav.js"></script>
+    <script defer src="scripts/script.js"></script>
+    <style>
+        body {
+            background-image: url("img/symphony.png");
+            background-repeat: repeat;
+            background-color: #ffffff;
+        }
+    </style>
+    <!-- <script src="scripts/tailwind.config.js"></script> -->
+
+
+    <!-- Google Fonts -->
+
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body class="mt-20 font-serif md:mx-24">
+
+
+    <!-- TOP BAR (NAV BAR) -->
+
+    <div name="topBar"
+        class="shadow-md bg-rose-400 text-white fixed top-0 left-0 w-screen h-16 px-3 z-10 md:px-24 flex justify-between">
+        <div class="flex space-x-20">
+            <div class="my-auto">
+                <h1 class="text-lg">Org. Help</h1>
+            </div>
+            <div class="hidden my-auto space-x-3 md:block">
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+            </div>
+        </div>
+
+        <!-- Nav Bar Left -->
+        <div class="my-auto flex divide-x divide-white">
+
+            <!-- Pc Search Bar -->
+            <span id="search_pc" class=" my-auto pr-2 hidden md:block">
+                <div class="grid grid-cols-10 bg-white rounded">
+                    <div class=" col-span-8"><input class="text-black outline-none rounded w-full h-14 p-3 pr-0"
+                            placeholder="Search Organizations..." type="search" name="search" id=""></div>
+                    <div class="col-span-2"><button class="rounded w-full h-full"><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-7 h-7 icon icon-tabler mx-auto icon-tabler-search" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="10" cy="10" r="7" />
+                                <line x1="21" y1="21" x2="15" y2="15" />
+                            </svg></button></div>
+                </div>
+            </span>
+
+            <!-- Mobile Search Bar -->
+            <span id="search_btn" class=" my-auto p-0 px-2 md:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 icon icon-tabler icon-tabler-search"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="10" cy="10" r="7" />
+                    <line x1="21" y1="21" x2="15" y2="15" />
+                </svg>
+            </span>
+
+            <!-- Account -->
+            <span id="profile_btn" class="my-auto cursor-pointer pl-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 icon icon-tabler icon-tabler-login" width="44"
+                    height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                    <path d="M20 12h-13l3 -3m0 6l-3 -3" />
+                </svg>
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Organization Search Mobile -->
+
+    <div id="mob_search"
+        class="shadow-md bg-rose-200 hidden text-white fixed top-0 left-0 h-screen w-screen h-16 px-3 pt-20 md:px-24 flex justify-between">
+        <input class="text-black outline-none rounded w-full h-14 p-3 my-0" placeholder="Search Organizations..."
+            type="search" name="search" id="">
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div name="mobileNavagation"
+        class=" fixed md:hidden w-16 h-16 bottom-0 right-0 rounded-tl-3xl bg-rose-400 text-white shadow-2xl cursor-pointer z-40"
+        id="nav_btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class=" w-full h-full p-4 my-auto icon icon-tabler icon-tabler-menu"
+            width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+        </svg>
+
+    </div>
+
+    <div class="top-0 right-0 block md:hidden bg-black opacity-30 w-screen h-screen fixed z-20 hidden " id="nav_bg">
+    </div>
+
+    <div class="bg-white w-4/5 h-screen opacity-100 fixed top-0 left-0 z-30 p-3 md:hidden hidden " id="nav_main">
+        <div class="h-16 py-auto w-full ">
+            <h1 class="">vAlpha 1.0.0</h1>
+        </div>
+        <div class="grid grid-cols-1 divide-y divide-rose-500">
+            <a href="#" class="py-3">
+                <div>
+                    Home
+                </div>
+            </a>
+            <a href="#" class="py-3">
+                <div>
+                    Projects
+                </div>
+            </a>
+            <a href="#" class="py-3">
+                <div>
+                    Contact
+                </div>
+            </a>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <!-- MAIN BODY -->
+    <div name="body" class="p-3 md:p-0">
+        <div>
+            <fieldset class="border border-rose-300 border-2 rounded p-3">
+                <legend class="p-1">Nominee Details</legend>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="flex gap-1">
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">First Name</label>
+                            <input type="text"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="First Name" />
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Middle Name</label>
+                            <input type="text"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Middle Name" />
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Last Name</label>
+                            <input type="text"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Last Name" />
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Date Of
+                                Birth</label>
+                            <input type="date"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Date Of Birth" />
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Mobile No.</label>
+                            <input type="tel"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Mobile No." />
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Email id</label>
+                            <input type="email"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Email Id." />
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Country</label>
+                            <select id="country-select"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                                <option>India</option>
+                                <option>country</option>
+                                <option>country</option>
+                                <option>country</option>
+                                <option>country</option>
+                                <option>country</option>
+                                <option>country</option>
+                                <option>country</option>
+                            </select>
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">State</label>
+                            <select id="state-select"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                                <option>State</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                                <option>Maharashtra</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <div>
+                                <label for="country">Country</label>
+                                <select id="country">
+                                    <option>select country</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="state">State</label>
+                                <span id="state-code"><input type="text" id="state"></span>
+                            </div>
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Pin Code</label>
+                            <input type="number"
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Eg. 400001" />
+                        </div>
+
+                    </div>
+                    <div class="flex gap-1">
+
+
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Current Address</label>
+                            <textarea
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Address"></textarea>
+                        </div>
+                        <div class="w-1/3 font-sans">
+                            <label class="block mb-1 text-sm text-gray-800">Prermanant Address</label>
+                            <textarea
+                                class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                placeholder="Address"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <fieldset class="border border-rose-300 border-2 rounded p-3">
+                <legend class="p-1">Identification Details
+                </legend>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="flex divide-x  gap-1 divide-rose-500">
+                            <div class="w-1/3 font-sans">
+                                <lable class=" block mb-1 text-sm text-gray-800">Individual's Aadhar Number</lable>
+                                <div class="flex gap-1">
+                                    <input type="number"
+                                        class="w-full font-sans px-auto py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="XXXX" />
+                                    <input type="number"
+                                        class="w-full font-sans px-auto py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="XXXX" />
+                                    <input type="number"
+                                        class="w-full font-sans px-auto py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="XXXX" />
+                                </div>
+                            </div>
+                            <div class="w-1/3 pl-1 font-sans">
+                                <lable class=" block mb-1 text-sm text-gray-800">Individual's Name As Per Aadhar Card
+                                </lable>
+                                <div class="flex gap-1">
+                                    <input type="text"
+                                        class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="Name As Per Aadhar Card" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="flex divide-x divide-rose-500 gap-1">
+                            <div class="w-1/3 pl-1 font-sans">
+                                <lable class=" block mb-1 text-sm text-gray-800">Individual's PAN Number</lable>
+                                <div class="flex gap-1">
+                                    <input type="number"
+                                        class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="" />
+                                    <input type="number"
+                                        class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="" />
+                                </div>
+                            </div>
+                            <div class="w-1/3 pl-1 font-sans">
+                                <lable class=" block mb-1 text-sm text-gray-800">Individual's Name As Per PAN</lable>
+                                <div class="">
+                                    <input type="text"
+                                        class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                                        placeholder="Name As Per PAN Card" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </fieldset>
+        <fieldset class="border border-rose-300 border-2 rounded p-3">
+            <legend class="p-1">Personal Details
+            </legend>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="flex gap-2">
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">Blood Group</label>
+                        <input type="text"
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                            placeholder="Blood Group" />
+                    </div>
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">Height</label>
+                        <input type="number"
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                            placeholder="Height" />
+                    </div>
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">Weight</label>
+                        <input type="number"
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                            placeholder="Weight" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="border border-rose-300 border-2 rounded p-3">
+            <legend class="p-1">Educational Details
+            </legend>
+            <div class="grid grid-cols-1 gap-3">
+                <div class="flex gap-2">
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">Educational Qualifications</label>
+                        <select
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1">
+                            <option>Education</option>
+                            <option>Primary</option>
+                            <option>Secondary</option>
+                            <option>High School</option>
+                            <option>Bachlors</option>
+                            <option>Masters</option>
+                            <option>Phd</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">Board/University</label>
+                        <input type="text"
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                            placeholder="Board" />
+                    </div>
+                    <div class="w-1/3 font-sans">
+                        <label class="block mb-1 text-sm text-gray-800">School/College</label>
+                        <input type="number"
+                            class="w-full font-sans px-2 py-1 text-base border border-gray-300 rounded outline-none focus:ring-blue-500 focus:border-blue-500 focus:ring-1"
+                            placeholder="School/College" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="flex py-3">
+            <div class="grid grid-cols-1 gap-3">
+
+                <button type="button"
+                    class="text-white bg-rose-400 font-medium rounded-lg text-sm px-6 py-3 text-center border border-gray-300 rounded outline-none hover:ring-blue-500 hover:border-blue-500 hover:ring-1">
+                    Next
+                </button>
+
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Next
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+
+            </div>
+        </fieldset>
+    </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // console.log("hello")
+        document.body.addEventListener('load', (event) => {
+            console.log('app.js file has been loaded');
+        });
+
+    </script>
+</body>
+
+</html>
